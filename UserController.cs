@@ -22,7 +22,7 @@ namespace UserManagement.Controllers
             try
             {
                 var user = _userRepository.Login(loginDto.Username, loginDto.Password);
-                return Ok(user);
+                return Ok($"Hello {user.Name}");
             }
             catch (Exception ex)
             {
