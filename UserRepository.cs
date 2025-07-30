@@ -48,12 +48,12 @@ namespace UserManagement.Repositories
             public bool Register(User user)
             {
                 var reguser = _dataContext.User.FirstOrDefault(x => x.Email == user.Email);
-                if (reguser == null)
+                if (reguser != null)
                 {
                     throw new Exception("Email already registered");
                 }
 
-                _dataContext.User.Add(reguser);
+                _dataContext.User.Add(user);
                 _dataContext.SaveChanges();
                 return true;
             }
